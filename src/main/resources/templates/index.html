@@ -36,23 +36,27 @@
 		        e.preventDefault();
 
 				var movie = $('#search').val();
-				var url = "http://www.omdbapi.com/?apikey=" + apiKey +"&t=" + movie;
+				var url = "http://www.omdbapi.com/?apikey=" + apiKey +"&s=" + movie;
                 var restHTML = '';
 
 				$.get(url, {
 				}).done(function(data) {
-                    console.log(data);
+                    // console.log(data);
+                    console.log(data.Search);
+                    var movies = data.Search;
 
-                    var poster = data.Poster;
-                    var title = data.Title;
-                    var year = data.Year;
+                    $('#result').empty();
+                    $.each(movies, function(index, movie) {
+                        var poster = movie.Poster;
+                        var title = movie.Title;
+                        var year = movie.Year;
 
-					$('#result').empty();
-                    restHTML = `
+                        restHTML += `
 						<img class="img-thumbnail" src="${poster}">
 						<h4>${title}</h4>
 						<p>${year}</p>
 						`
+					});
 					$('#result').append(restHTML);
                 }).fail(function(errors) {
                     console.error(errors);
