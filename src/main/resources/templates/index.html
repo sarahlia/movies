@@ -37,10 +37,23 @@
 
 				var movie = $('#search').val();
 				var url = "http://www.omdbapi.com/?apikey=" + apiKey +"&t=" + movie;
+                var restHTML = '';
 
 				$.get(url, {
 				}).done(function(data) {
-                    console.log(data)
+                    console.log(data);
+
+                    var poster = data.Poster;
+                    var title = data.Title;
+                    var year = data.Year;
+
+					$('#result').empty();
+                    restHTML = `
+						<img class="img-thumbnail" src="${poster}">
+						<h4>${title}</h4>
+						<p>${year}</p>
+						`
+					$('#result').append(restHTML);
                 }).fail(function(errors) {
                     console.error(errors);
                 });
