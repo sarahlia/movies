@@ -29,9 +29,8 @@
 	<script>
         // $(document).ready(function() {
 
-            var apiKey = "85b1beaf";
             var movieId = sessionStorage.getItem('movieId');
-            var url = "http://www.omdbapi.com/?apikey=" + apiKey +"&i=" + movieId;
+            var url = "http://www.omdbapi.com/?apikey=85b1beaf&i=" + movieId;
 
             $.get(url, {
 			}).done(function(data) {
