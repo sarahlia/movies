@@ -45,22 +45,22 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<script>
-		$(document).ready(function() {
+        $(document).ready(function() {
 
-		    var apiKey = "85b1beaf";
+            var apiKey = "85b1beaf";
 
-		    $('#form').submit(function(e) {
-		        e.preventDefault();
+            $('#form').submit(function(e) {
+                e.preventDefault();
 
-				var movie = $('#search').val();
-				var url = "http://www.omdbapi.com/?apikey=" + apiKey +"&s=" + movie;
+                var movie = $('#search').val();
+                var url = "http://www.omdbapi.com/?apikey=" + apiKey +"&s=" + movie;
                 var restHTML = `
                 	<div class="container text-center">
                 		<div class="row">
                 	`;
 
-				$.get(url, {
-				}).done(function(data) {
+                $.get(url, {
+                }).done(function(data) {
                     // console.log(data);
                     console.log(data.Search);
                     var movies = data.Search;
@@ -70,26 +70,26 @@
                         var poster = movie.Poster;
                         var title = movie.Title;
                         var year = movie.Year;
-                        var id = movie.imdbID
+                        var imdbID = movie.imdbID;
 
                         restHTML += `
 								<div class="col-sm-12 col-md-6 mb-4">
-									<a href="#"><img class="img-thumbnail" src="${poster}" style="width: 310px; height:445px;"></a>
+									<img class="img-thumbnail" src="${poster}" style="width: 310px; height:445px;">
 									<h4>${title}</h4>
 									<p>${year}</p>
+									<p>${imdbID}</p>
+									<a onclick="sessionStorage.setItem('movieId', '${imdbID}');window.location='show.html';return false;" class="btn btn-primary" href="#">Details</a>
 								</div>
 						`
-					});
+                    });
                     restHTML += `</div> </div>`;
-					$('#result').append(restHTML);
+                    $('#result').append(restHTML);
                 }).fail(function(errors) {
                     console.error(errors);
                 });
-			})
+            })
 
-
-
-		})
+        })
 	</script>
 </div>
 

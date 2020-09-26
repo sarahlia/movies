@@ -10,4 +10,9 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/show.html")
+    public String showOneMovie() {
+        return "show";
+    }
+
 }
