@@ -18,10 +18,6 @@
 <!--Movies from OMDB json go here-->
 		</div>
 
-		<form th:action="${'/bookmarks/save'}" th:method="GET">
-			<input type="text" name="person" value="sarah">
-			<button type="submit" class="btn btn-primary">bookmark</button>
-		</form>
 <!--		<div>-->
 <!--			<form th:action="${'/bookmarks'}" th:method="POST">-->
 <!--				<button type="submit" class="btn btn-primary mb-2 mr-2">View</button>-->
@@ -81,6 +77,10 @@
 							<h6>Directed by ${director}</h6>
 							<h6>${production}</h6>
 							<br>
+							<form action="/bookmarks/save" method="GET">
+								<input type="text" name="person" value="lia">
+								<button type="submit" class="btn btn-primary">bookmark</button>
+							</form>
 
 						</div>
 					`;
