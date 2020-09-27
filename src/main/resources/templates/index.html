@@ -16,7 +16,7 @@
 <div class="container">
 	<h4 class="d-flex justify-content-center mt-4">Search for your favorite movies...</h4>
 	<form id="form" class="form-inline justify-content-center mb-4">
-		<input id="search" autocomplete="off" class="form-control mr-sm-2" type="search" aria-label="Search">
+		<input id="search" autocomplete="off" class="form-control mr-sm-2 mr-md-0" type="search" aria-label="Search" style="width:420px;height:38px;">
 		<button id="submit" class="btn btn-outline-dark my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i></button>
 	</form>
 
@@ -34,8 +34,8 @@
 				$('#form').submit(function(e) {
 					e.preventDefault();
 
-					var movie = $('#search').val();
-					var url = "http://www.omdbapi.com/?apikey=85b1beaf&s=" + movie;
+					var keyword = $('#search').val();
+					var url = "http://www.omdbapi.com/?apikey=85b1beaf&s=" + keyword;
 					var restHTML = '';
 
 					$.get(url, {
