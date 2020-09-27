@@ -15,8 +15,20 @@
 <div class="container">
 	<div class="container">
 		<div id="movie" class="row mt-4">
-
+<!--Movies from OMDB json go here-->
 		</div>
+
+		<form th:action="${'/bookmarks/save'}" th:method="GET">
+			<input type="text" name="person" value="sarah">
+			<button type="submit" class="btn btn-primary">bookmark</button>
+		</form>
+<!--		<div>-->
+<!--			<form th:action="${'/bookmarks'}" th:method="POST">-->
+<!--				<button type="submit" class="btn btn-primary mb-2 mr-2">View</button>-->
+<!--			</form>-->
+<!--		</div>-->
+
+
 	</div>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -69,10 +81,7 @@
 							<h6>Directed by ${director}</h6>
 							<h6>${production}</h6>
 							<br>
-							<form action="">
-								<p>${imdbID}</p>
-								<p><i class="far fa-bookmark"></i>  Add to Bookmark</p>
-							</form>
+
 						</div>
 					`;
 
@@ -84,6 +93,26 @@
         	})
         })();
 	</script>
+
+<!--	th:object="${bookmark}"-->
+
+<!--	<input type="hidden" name="id" th:field="*{id}">-->
+<!--	<input type="text" name="imdbID" th:field="*{imdbID}">-->
+<!--	<input type="text" name="title" th:field="*{title}">-->
+<!--	<input type="text" name="year" th:field="*{year}">-->
+
+<!--	<p>${imdbID}</p>-->
+<!--	<p>${title}</p>-->
+<!--	<p>${year}</p>-->
+
+<!--	<i class="far fa-bookmark"></i>-->
+
+
+<!--	<form action="">-->
+<!--		<p>${imdbID}</p>-->
+<!--		<p><i class="far fa-bookmark"></i>  Add to Bookmark</p>-->
+<!--	</form>-->
+
 </div>
 
 </body>

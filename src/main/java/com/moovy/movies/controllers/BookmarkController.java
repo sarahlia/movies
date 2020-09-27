@@ -27,15 +27,15 @@ public class BookmarkController {
         return "bookmarks/index";
     }
 
-    @GetMapping("/bookmarks/create")
+    @GetMapping("/bookmarks/save")
     public String showCreateForm(Model model) {
         model.addAttribute("bookmark", new Bookmark());
-        return "bookmarks/create";
+        return "bookmarks/save";
     }
 
-    @PostMapping("/bookmarks/create")
+    @PostMapping("/bookmarks/save")
     public String create(@ModelAttribute Bookmark bookmarkToBeSaved) {
         Bookmark savedBookmark = bookmarksRepository.save(bookmarkToBeSaved);
-        return "redirect:/bookmarks/";
+        return "redirect:/bookmarks/index";
     }
 }

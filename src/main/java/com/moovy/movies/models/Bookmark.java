@@ -25,6 +25,10 @@ public class Bookmark {
     public Bookmark() {
     }
 
+    public Bookmark(String title) {
+        this.title = title;
+    }
+
     //create
     public Bookmark(String title, String year, String posterLink, String imdbID) {
         this.title = title;

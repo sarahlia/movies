@@ -7,30 +7,38 @@
 </head>
 <body>
 	<div class="container">
-		<h3 class="text-center">Bookmarks</h3>
-		<div th:if="${noBookmarksFound}">
-			<h2>No bookmarks were found.</h2>
-		</div>
 
-		<div th:unless="${noBookmarksFound}">
-			<div class="container d-flex justify-content-center">
+		<h4>Test text for bookmarks/index.html</h4>
+
+<!--		<h3 class="text-center">Bookmarks</h3>-->
+<!--		<div th:if="${noBookmarksFound}">-->
+<!--			<h2>No bookmarks were found.</h2>-->
+<!--		</div>-->
+
+<!--		<div th:unless="${noBookmarksFound}">-->
+			<div id="bookmark" class="container d-flex justify-content-center">
 				<div th:each="bookmark:${bookmarks}">
 					<div class="card text-center" style="width: 18rem;">
-						<img th:src="${bookmark.posterLink}" class="card-img-top mx-auto" style="width: 12rem; height: 16rem;">
+<!--						<img th:src="${bookmark.posterLink}" class="card-img-top mx-auto" style="width: 12rem; height: 16rem;">-->
 						<div class="card-body">
 							<p th:text="${bookmark.id}" class="card-text">ID</p>
 							<h3 th:text="${bookmark.title}" class="card-title">Title</h3>
-							<p th:text="${bookmark.imdbID}" class="card-text">ID</p>
-							<p th:text="${bookmark.year}" class="card-text">ID</p>
-			<!--					<form th:action="${'/bookmarks/' + bookmark.id}" th:method="GET">-->
-			<!--						<button type="submit" class="btn btn-primary mb-2 mr-2">View</button>-->
-			<!--					</form>-->
+							<p th:text="${bookmark.imdbID}" class="card-text">Imdb ID</p>
+							<p th:text="${bookmark.year}" class="card-text">Year</p>
+<!--								<form th:action="${'/bookmarks/' + bookmark.id}" th:method="GET">-->
+<!--									<button type="submit" class="btn btn-primary mb-2 mr-2">View</button>-->
+<!--								</form>-->
 						</div>
 					</div>
 				</div>
 
+
+<!--				<div id="bookmark">-->
+<!--					<div th:text="${bookmark.title}"></div>-->
+<!--				</div>-->
+
 			</div>
-		</div>
+<!--		</div>-->
 
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
