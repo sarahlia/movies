@@ -42,6 +42,7 @@
 					var imdbRating = data.Ratings[0].Value;
 					var rtRating = data.Ratings[1].Value;
 					var metaRating = data.Ratings[2].Value;
+					var imdbID = data.imdbID;
 
 					$('#movie').empty();
 
@@ -69,6 +70,7 @@
 							<h6>${production}</h6>
 							<br>
 							<form action="">
+								<p>${imdbID}</p>
 								<p><i class="far fa-bookmark"></i>  Add to Bookmark</p>
 							</form>
 						</div>
