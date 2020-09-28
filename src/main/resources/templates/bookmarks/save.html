@@ -11,15 +11,12 @@
 	<h4>Test text in save.html</h4>
 	<h4>Data submitted from show.html should be printed below:</h4>
 
-<!--	<form id="result" onclick="fillData()">-->
-<!--		<div type="text" id="writeImdbID"> </div>-->
-<!--		<div type="text" id="writePoster"> </div>-->
-		<button id="writeImdbID" onclick="document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;"> </button>
-		<button id="writePoster" onclick="document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;"> </button>
-		<button id="writeTitle" onclick="document.getElementById('title').value=document.getElementById('writeTitle').textContent;"> </button>
-		<button id="writeYear" onclick="document.getElementById('year').value=document.getElementById('writeYear').textContent;"> </button>
-
-<!--	</form>-->
+	<button id="result" onclick="document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;document.getElementById('title').value=document.getElementById('writeTitle').textContent;document.getElementById('year').value=document.getElementById('writeYear').textContent;">
+		<span id="writeImdbID"> </span>
+		<span id="writePoster"> </span>
+		<span id="writeTitle"> </span>
+		<span id="writeYear"> </span>
+	</button>
 
 	<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">
 
