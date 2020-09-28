@@ -36,6 +36,6 @@ public class BookmarkController {
     @PostMapping("/bookmarks/save")
     public String create(@ModelAttribute Bookmark bookmarkToBeSaved) {
         Bookmark savedBookmark = bookmarksRepository.save(bookmarkToBeSaved);
-        return "redirect:/bookmarks/index";
+        return "redirect:/bookmarks/";
     }
 }
