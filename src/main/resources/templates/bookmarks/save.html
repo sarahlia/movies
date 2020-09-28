@@ -9,30 +9,29 @@
 <div class="container">
 
 	<h4>Are you sure you want to bookmark this movie?</h4>
-	<h5>Click box to show movie, then Bookmark!</h5>
 
-<!--	<form id="result">-->
-<!--		<span>click to show details</span>-->
-		<h6 id="writeImdbID" th:text="${imdbID}">  </h6>
-		<h6 id="writePoster" th:text="${posterLink}"> </h6>
-		<h6 id="writeTitle" th:text="${title}"> </h6>
-		<h6 id="writeYear" th:text="${year}"> </h6>
+	<button class="btn btn-outline-primary mb-2" id="info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		Click to show movie details
+	</button>
+	<div class="collapse" id="collapseExample">
+		<div class="card text-center" style="width: 18rem;">
+			<h6 hidden id="writeImdbID" th:text="${imdbID}">  </h6>
+			<img id="writePoster" th:src="${posterLink}" class="card-img-top mx-auto" style="width: 6rem; height: 10rem;" alt="No image found">
+			<div class="card-body">
+				<h3 id="writeTitle" th:text="${title}" class="card-title"> </h3>
+				<p id="writeYear" th:text="${year}" class="card-text"> </p>
+			</div>
+		</div>
+	</div>
 
-<!--	</form>-->
-
+<!--	Form model binding with Java class fields/database columsn -->
 	<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">
+		<input hidden type="text" id="imdbID"  th:field="*{imdbID}">
+		<input hidden type="text" id="posterLink" th:field="*{posterLink}">
+		<input hidden type="text" id="title" th:field="*{title}">
+		<input hidden type="text" id="year" th:field="*{year}">
 
-		<input  type="text" id="imdbID"  th:field="*{imdbID}">
-
-		<input  type="text" id="posterLink" th:field="*{posterLink}">
-
-		<input  type="text" id="title" th:field="*{title}">
-
-<!--		onclick="document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;document.getElementById('title').value=document.getElementById('writeTitle').textContent;document.getElementById('year').value=document.getElementById('writeYear').textContent;"-->
-
-		<input  type="text" id="year" th:field="*{year}">
-
-		<button type="submit" class="btn btn-primary mb-2 mr-2">Bookmark!</button>
+		<button type="submit" class="btn btn-primary mt-2 mb-2 mr-2">Bookmark!</button>
 	</form>
 
 	<a href="/dashboard"><button type="button" class="btn btn-secondary">Cancel</button></a>
@@ -42,15 +41,13 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<script>
 		(function() {
-
 			$(document).ready(function() {
-
-                // document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;
-                // document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;
-                // document.getElementById('title').value=document.getElementById('writeTitle').textContent;
-                // document.getElementById('year').value=document.getElementById('writeYear').textContent;
-				//
-
+			    $('#info').click(function() {
+                    $('#imdbID').val($('#writeImdbID').text());
+                    $('#posterLink').val( $('#writePoster').attr("src") );
+                    $('#title').val($('#writeTitle').text());
+                    $('#year').val($('#writeYear').text());
+				})
 			})
         })();
 	</script>

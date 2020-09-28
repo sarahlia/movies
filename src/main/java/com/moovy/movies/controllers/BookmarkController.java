@@ -30,6 +30,7 @@ public class BookmarkController {
                                  @RequestParam(name = "posterLink") String posterLink,
                                  @RequestParam (name = "title") String title,
                                  @RequestParam (name = "year") String year) {
+
         model.addAttribute("bookmark", new Bookmark());
         model.addAttribute("imdbID", imdbID);
         model.addAttribute("posterLink", posterLink);
