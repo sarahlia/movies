@@ -19,12 +19,12 @@ public class BookmarkController {
         this.bookmarksRepository = bookmarksRepository;
     }
 
-    @GetMapping("/bookmarks")
+    @GetMapping("/dashboard")
     public String bookmarksIndex(Model model) {
         List<Bookmark> bookmarksList = bookmarksRepository.findAll();
         model.addAttribute("bookmarks", bookmarksList);
         model.addAttribute("noBookmarksFound", bookmarksList.size()==0);
-        return "bookmarks/index";
+        return "index";
     }
 
     @GetMapping("/bookmarks/save")
@@ -36,6 +36,6 @@ public class BookmarkController {
     @PostMapping("/bookmarks/save")
     public String create(@ModelAttribute Bookmark bookmarkToBeSaved) {
         Bookmark savedBookmark = bookmarksRepository.save(bookmarkToBeSaved);
-        return "redirect:/bookmarks/";
+        return "redirect:/dashboard";
     }
 }

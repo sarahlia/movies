@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Sarah's Movie Application</title>
+	<title>Dashboard</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <!--	<link rel="stylesheet" href="css/style.css"/>-->
 	<script src="https://kit.fontawesome.com/068546a344.js"></script>
@@ -11,7 +11,7 @@
 
 <body>
 <nav class="navbar navbar-dark bg-dark">
-	<a class="navbar-brand" href="#">Moovy Magic</a>
+	<a class="navbar-brand" href="/dashboard">Moovy Magic</a>
 </nav>
 <div class="container">
 	<h4 class="d-flex justify-content-center mt-4">Search for your favorite movies...</h4>
@@ -21,6 +21,26 @@
 	</form>
 
 	<div class="container justify-content-center d-flex flex-wrap" id="result">
+<!--Movies from OMDB json go here-->
+	</div>
+
+<!--	Start of bookmarks-->
+	<h3 class="text-center">Bookmarks</h3>
+	<div id="bookmark" class="container d-flex flex-wrap justify-content-center">
+		<div th:each="bookmark:${bookmarks}">
+			<div class="card text-center" style="width: 18rem;">
+				<img th:src="${bookmark.posterLink}" class="card-img-top mx-auto" style="width: 6rem; height: 10rem;">
+				<div class="card-body">
+					<p hidden th:text="${bookmark.id}" class="card-text">ID</p>
+					<h3 th:text="${bookmark.title}" class="card-title">Title</h3>
+					<p hidden th:text="${bookmark.imdbID}" class="card-text">Imdb ID</p>
+					<p th:text="${bookmark.year}" class="card-text">Year</p>
+					<!--								<form th:action="${'/bookmarks/' + bookmark.id}" th:method="GET">-->
+					<!--									<button type="submit" class="btn btn-primary mb-2 mr-2">View</button>-->
+					<!--								</form>-->
+				</div>
+			</div>
+		</div>
 
 	</div>
 

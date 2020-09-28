@@ -10,12 +10,12 @@
 
 <body>
 <nav class="navbar navbar-dark bg-dark">
-	<a class="navbar-brand" href="/">Moovy Magic</a>
+	<a class="navbar-brand" href="/dashboard">Moovy Magic</a>
 </nav>
 <div class="container">
 	<div class="container">
 		<div id="movie" class="row mt-4">
-<!--Movies from OMDB json go here-->
+<!--Movie from OMDB json goes here-->
 		</div>
 
 <!--		<div>-->
@@ -48,8 +48,8 @@
 					var director = data.Director;
 					var production = data.Production;
 					var imdbRating = data.Ratings[0].Value;
-					var rtRating = data.Ratings[1].Value;
-					var metaRating = data.Ratings[2].Value;
+					// var rtRating = data.Ratings[1].Value;
+					// var metaRating = data.Ratings[2].Value;
 					var imdbID = data.imdbID;
 
 					$('#movie').empty();
