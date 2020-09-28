@@ -4,10 +4,7 @@ import com.moovy.movies.models.Bookmark;
 import com.moovy.movies.repository.BookmarksRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,8 +26,15 @@ public class BookmarkController {
     }
 
     @GetMapping("/bookmarks/save")
-    public String showCreateForm(Model model) {
+    public String showCreateForm(Model model, @RequestParam(name = "imdbID") String imdbID,
+                                 @RequestParam(name = "posterLink") String posterLink,
+                                 @RequestParam (name = "title") String title,
+                                 @RequestParam (name = "year") String year) {
         model.addAttribute("bookmark", new Bookmark());
+        model.addAttribute("imdbID", imdbID);
+        model.addAttribute("posterLink", posterLink);
+        model.addAttribute("title", title);
+        model.addAttribute("year", year);
         return "bookmarks/save";
     }
 

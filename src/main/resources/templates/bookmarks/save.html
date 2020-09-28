@@ -13,22 +13,24 @@
 
 <!--	<form id="result">-->
 <!--		<span>click to show details</span>-->
-		<span id="writeImdbID" hidden> </span>
-		<span id="writePoster" hidden> </span>
-		<span id="writeTitle" hidden> </span>
-		<span id="writeYear" hidden> </span>
+		<h6 id="writeImdbID" th:text="${imdbID}">  </h6>
+		<h6 id="writePoster" th:text="${posterLink}"> </h6>
+		<h6 id="writeTitle" th:text="${title}"> </h6>
+		<h6 id="writeYear" th:text="${year}"> </h6>
 
 <!--	</form>-->
 
 	<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">
 
-		<input hidden type="text" id="imdbID"  th:field="*{imdbID}">
+		<input  type="text" id="imdbID"  th:field="*{imdbID}">
 
-		<input hidden type="text" id="posterLink" th:field="*{posterLink}">
+		<input  type="text" id="posterLink" th:field="*{posterLink}">
 
-		<input readonly onclick="document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;document.getElementById('title').value=document.getElementById('writeTitle').textContent;document.getElementById('year').value=document.getElementById('writeYear').textContent;" type="text" id="title" th:field="*{title}">
+		<input  type="text" id="title" th:field="*{title}">
 
-		<input hidden type="text" id="year" th:field="*{year}">
+<!--		onclick="document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;document.getElementById('title').value=document.getElementById('writeTitle').textContent;document.getElementById('year').value=document.getElementById('writeYear').textContent;"-->
+
+		<input  type="text" id="year" th:field="*{year}">
 
 		<button type="submit" class="btn btn-primary mb-2 mr-2">Bookmark!</button>
 	</form>
@@ -43,38 +45,11 @@
 
 			$(document).ready(function() {
 
-
-			// $('#write').append(window.location.search);
-
-			function getParameterByName(name, url) {
-				if (!url) {
-					url = window.location.href;
-				}
-
-				name = name.replace(/[\[\]]/g, '\\$&');
-
-				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-					results = regex.exec(url);
-
-				if (!results) {
-					return null;
-				}
-				if (!results[2]) {
-					return '';
-				}
-
-				return decodeURIComponent(results[2].replace(/\+/g, ' '));
-			}
-
-			var imdbID = getParameterByName('imdbID');
-			var posterLink = getParameterByName('posterLink');
-			var title = getParameterByName('title');
-			var year = getParameterByName('year');
-			// $('#write').append(title);
-			$('#writeImdbID').append(imdbID);
-			$('#writePoster').append(posterLink);
-			$('#writeTitle').append(title);
-			$('#writeYear').append(year);
+                // document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;
+                // document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;
+                // document.getElementById('title').value=document.getElementById('writeTitle').textContent;
+                // document.getElementById('year').value=document.getElementById('writeYear').textContent;
+				//
 
 			})
         })();
