@@ -9,25 +9,69 @@
 <div class="container">
 
 	<h4>Test text in save.html</h4>
+	<h4>Data submitted from show.html should be printed below:</h4>
 
-	<div id="write">
+	<div type="text" id="writeImdbID"> </div>
 
-	</div>
+	<div type="text" id="writePoster"> </div>
 
-	<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">
-		<input type="hidden" th:field="*{id}">
-		<input type="text" th:field="*{imdbID}">
-		<input type="text" th:field="*{title}">
-		<input type="text" th:field="*{year}">
-		<button type="submit" class="btn btn-primary mb-2 mr-2">bookmark this!</button>
-	</form>
+	<div type="text" id="writeTitle"> </div>
+
+	<div type="text" id="writeYear"> </div>
+
+
+<!--	<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">-->
+
+<!--		<input type="hidden" th:field="*{id}">-->
+
+<!--		<input type="text" id="writeImdbID" th:field="*{imdbID}">-->
+
+<!--		<input type="text" id="writePoster" th:field="*{posterLink}">-->
+
+<!--		<input type="text" id="writeTitle" th:field="*{title}">-->
+
+<!--		<input type="text" id="writeYear" th:field="*{year}">-->
+
+<!--		<button type="submit" class="btn btn-primary mb-2 mr-2">bookmark this!</button>-->
+<!--	</form>-->
 
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<script>
-		$('#write').append(window.location.search);
+		// $('#write').append(window.location.search);
+
+        function getParameterByName(name, url) {
+            if (!url) {
+                url = window.location.href;
+            }
+
+            name = name.replace(/[\[\]]/g, '\\$&');
+
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+
+            if (!results) {
+                return null;
+            }
+            if (!results[2]) {
+                return '';
+            }
+
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        var imdbID = getParameterByName('imdbID');
+        var posterLink = getParameterByName('posterLink');
+        var title = getParameterByName('title');
+        var year = getParameterByName('year');
+        // $('#write').append(title);
+        $('#writeImdbID').append(imdbID);
+        $('#writePoster').append(posterLink);
+        $('#writeTitle').append(title);
+        $('#writeYear').append(year);
+
 	</script>
 </div>
 </body>

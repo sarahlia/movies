@@ -41,7 +41,7 @@
 					console.log(data);
 					console.log(data.Title);
 					var title = data.Title;
-					var poster = data.Poster;
+					var posterLink = data.Poster;
 					var year = data.Year;
 					var rated = data.Rated;
 					var runtime = data.Runtime;
@@ -56,7 +56,7 @@
 
 					var restHTML = `
 						<div class="col-md-4">
-							<img class="img-thumbnail" src="${poster}">
+							<img class="img-thumbnail" src="${posterLink}">
 						</div>
 						<div class="col-md-8">
 							<div class="d-flex justify-content-between">
@@ -79,6 +79,7 @@
 							<br>
 							<form action="/bookmarks/save" method="GET">
 								<input type="text" name="imdbID" value="${imdbID}">
+								<input type="text" name="posterLink" value="${posterLink}">
 								<input type="text" name="title" value="${title}">
 								<input type="text" name="year" value="${year}">
 

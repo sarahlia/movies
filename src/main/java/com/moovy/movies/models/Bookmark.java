@@ -29,6 +29,13 @@ public class Bookmark {
         this.title = title;
     }
 
+    //create without posterLink
+    public Bookmark(String title, String year, String imdbID) {
+        this.title = title;
+        this.year = year;
+        this.imdbID = imdbID;
+    }
+
     //create
     public Bookmark(String title, String year, String posterLink, String imdbID) {
         this.title = title;
