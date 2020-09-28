@@ -8,27 +8,29 @@
 <body>
 <div class="container">
 
-	<h4>Test text in save.html</h4>
-	<h4>Data submitted from show.html should be printed below:</h4>
+	<h4>Are you sure you want to bookmark this movie?</h4>
+	<h5>Click box to show movie, then Bookmark!</h5>
 
-	<button id="result" onclick="document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;document.getElementById('title').value=document.getElementById('writeTitle').textContent;document.getElementById('year').value=document.getElementById('writeYear').textContent;">
-		<span id="writeImdbID"> </span>
-		<span id="writePoster"> </span>
-		<span id="writeTitle"> </span>
-		<span id="writeYear"> </span>
-	</button>
+<!--	<form id="result">-->
+<!--		<span>click to show details</span>-->
+		<span id="writeImdbID" hidden> </span>
+		<span id="writePoster" hidden> </span>
+		<span id="writeTitle" hidden> </span>
+		<span id="writeYear" hidden> </span>
+
+<!--	</form>-->
 
 	<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">
 
-		<input type="text" id="imdbID"  th:field="*{imdbID}">
+		<input hidden type="text" id="imdbID"  th:field="*{imdbID}">
 
-		<input type="text" id="posterLink" th:field="*{posterLink}">
+		<input hidden type="text" id="posterLink" th:field="*{posterLink}">
 
-		<input type="text" id="title" th:field="*{title}">
+		<input readonly onclick="document.getElementById('imdbID').value=document.getElementById('writeImdbID').textContent;document.getElementById('posterLink').value=document.getElementById('writePoster').textContent;document.getElementById('title').value=document.getElementById('writeTitle').textContent;document.getElementById('year').value=document.getElementById('writeYear').textContent;" type="text" id="title" th:field="*{title}">
 
-		<input type="text" id="year" th:field="*{year}">
+		<input hidden type="text" id="year" th:field="*{year}">
 
-		<button type="submit" class="btn btn-primary mb-2 mr-2">bookmark this!</button>
+		<button type="submit" class="btn btn-primary mb-2 mr-2">Bookmark!</button>
 	</form>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>

@@ -14,7 +14,7 @@
 <!--		</div>-->
 
 <!--		<div th:unless="${noBookmarksFound}">-->
-			<div id="bookmark" class="container d-flex justify-content-center">
+			<div id="bookmark" class="container d-flex flex-wrap justify-content-center">
 				<div th:each="bookmark:${bookmarks}">
 					<div class="card text-center" style="width: 18rem;">
 						<img th:src="${bookmark.posterLink}" class="card-img-top mx-auto" style="width: 12rem; height: 16rem;">

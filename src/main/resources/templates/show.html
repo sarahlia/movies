@@ -78,11 +78,10 @@
 							<h6>${production}</h6>
 							<br>
 							<form action="/bookmarks/save" method="GET">
-								<input type="text" name="imdbID" value="${imdbID}">
-								<input type="text" name="posterLink" value="${posterLink}">
-								<input type="text" name="title" value="${title}">
-								<input type="text" name="year" value="${year}">
-
+								<input type="hidden" name="imdbID" value="${imdbID}">
+								<input type="hidden" name="posterLink" value="${posterLink}">
+								<input type="hidden" name="title" value="${title}">
+								<input type="hidden" name="year" value="${year}">
 								<button type="submit" class="btn btn-primary">Add to bookmark</button>
 							</form>
 
