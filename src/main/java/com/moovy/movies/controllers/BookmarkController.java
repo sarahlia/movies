@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -36,6 +37,19 @@ public class BookmarkController {
     @PostMapping("/bookmarks/save")
     public String create(@ModelAttribute Bookmark bookmarkToBeSaved) {
         Bookmark savedBookmark = bookmarksRepository.save(bookmarkToBeSaved);
+        return "redirect:/dashboard";
+    }
+
+    @GetMapping("/bookmarks/{id}/delete")
+    public String showDeleteForm(Model model, @PathVariable long id) {
+        Bookmark bookmarkToDelete = bookmarksRepository.getOne(id);
+        model.addAttribute("bookmark", bookmarkToDelete);
+        return "bookmarks/delete";
+    }
+
+    @PostMapping("/bookmarks/{id}/delete")
+    public String delete(@PathVariable long id) {
+        bookmarksRepository.deleteById(id);
         return "redirect:/dashboard";
     }
 }

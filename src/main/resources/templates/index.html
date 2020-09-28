@@ -35,9 +35,9 @@
 					<h3 th:text="${bookmark.title}" class="card-title">Title</h3>
 					<p hidden th:text="${bookmark.imdbID}" class="card-text">Imdb ID</p>
 					<p th:text="${bookmark.year}" class="card-text">Year</p>
-					<!--								<form th:action="${'/bookmarks/' + bookmark.id}" th:method="GET">-->
-					<!--									<button type="submit" class="btn btn-primary mb-2 mr-2">View</button>-->
-					<!--								</form>-->
+					<form th:action="${'/bookmarks/' + bookmark.id + '/delete'}" th:method="GET">
+						<button type="submit" class="btn btn-outline-danger btn-sm mb-2">Delete</button>
+					</form>
 				</div>
 			</div>
 		</div>

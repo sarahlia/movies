@@ -33,47 +33,51 @@
 		<button type="submit" class="btn btn-primary mb-2 mr-2">Bookmark!</button>
 	</form>
 
+	<a href="/dashboard"><button type="button" class="btn btn-secondary">Cancel</button></a>
+
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<script>
+		(function() {
 
-		$(document).ready(function() {
+			$(document).ready(function() {
 
 
-		// $('#write').append(window.location.search);
+			// $('#write').append(window.location.search);
 
-        function getParameterByName(name, url) {
-            if (!url) {
-                url = window.location.href;
-            }
+			function getParameterByName(name, url) {
+				if (!url) {
+					url = window.location.href;
+				}
 
-            name = name.replace(/[\[\]]/g, '\\$&');
+				name = name.replace(/[\[\]]/g, '\\$&');
 
-            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                results = regex.exec(url);
+				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+					results = regex.exec(url);
 
-            if (!results) {
-                return null;
-            }
-            if (!results[2]) {
-                return '';
-            }
+				if (!results) {
+					return null;
+				}
+				if (!results[2]) {
+					return '';
+				}
 
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
+				return decodeURIComponent(results[2].replace(/\+/g, ' '));
+			}
 
-        var imdbID = getParameterByName('imdbID');
-        var posterLink = getParameterByName('posterLink');
-        var title = getParameterByName('title');
-        var year = getParameterByName('year');
-        // $('#write').append(title);
-        $('#writeImdbID').append(imdbID);
-        $('#writePoster').append(posterLink);
-        $('#writeTitle').append(title);
-        $('#writeYear').append(year);
+			var imdbID = getParameterByName('imdbID');
+			var posterLink = getParameterByName('posterLink');
+			var title = getParameterByName('title');
+			var year = getParameterByName('year');
+			// $('#write').append(title);
+			$('#writeImdbID').append(imdbID);
+			$('#writePoster').append(posterLink);
+			$('#writeTitle').append(title);
+			$('#writeYear').append(year);
 
-        })
+			})
+        })();
 	</script>
 </div>
 </body>
