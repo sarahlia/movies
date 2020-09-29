@@ -48,14 +48,14 @@
 
 					var restHTML = `
 						<div class="col-md-4">
-							<img class="img-thumbnail" src="${posterLink}">
+							<img class="img-thumbnail" src="${posterLink}" alt="Movie poster">
 						</div>
 						<div class="col-md-8">
 							<div class="d-flex justify-content-between">
 								<h3>${title}</h3>
 								<div>
 									<div>
-										<i class="fab fa-imdb"></i>
+										<img src="https://ia.media-imdb.com/images/M/MV5BMTczNjM0NDY0Ml5BMl5BcG5nXkFtZTgwMTk1MzQ2OTE@._V1_.png" style="width:45px;height:45px" alt="IMDb logo">
 										<p>${imdbRating}</p>
 									</div>
 								</div>
@@ -76,7 +76,6 @@
 								<input type="hidden" name="year" value="${year}">
 								<button type="submit" class="btn btn-primary">Add to bookmark</button>
 							</form>
-
 						</div>
 					`;
 

@@ -14,25 +14,26 @@
 		Click to show movie details
 	</button>
 	<div class="collapse" id="collapseExample">
+<!--		Shows movie data passed from show.html-->
 		<div class="card text-center" style="width: 18rem;">
 			<h6 hidden id="writeImdbID" th:text="${imdbID}">  </h6>
-			<img id="writePoster" th:src="${posterLink}" class="card-img-top mx-auto" style="width: 6rem; height: 10rem;" alt="No image found">
+			<img id="writePoster" th:src="${posterLink}" class="card-img-top mx-auto" style="width: 6rem; height: 10rem;" alt="Movie poster">
 			<div class="card-body">
 				<h3 id="writeTitle" th:text="${title}" class="card-title"> </h3>
 				<p id="writeYear" th:text="${year}" class="card-text"> </p>
 			</div>
 		</div>
+
+		<!--	Form model binding with Java class fields/database columns -->
+		<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">
+			<input hidden type="text" id="imdbID"  th:field="*{imdbID}">
+			<input hidden type="text" id="posterLink" th:field="*{posterLink}">
+			<input hidden type="text" id="title" th:field="*{title}">
+			<input hidden type="text" id="year" th:field="*{year}">
+
+			<button type="submit" class="btn btn-primary mt-2 mb-2 mr-2">Bookmark!</button>
+		</form>
 	</div>
-
-<!--	Form model binding with Java class fields/database columsn -->
-	<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">
-		<input hidden type="text" id="imdbID"  th:field="*{imdbID}">
-		<input hidden type="text" id="posterLink" th:field="*{posterLink}">
-		<input hidden type="text" id="title" th:field="*{title}">
-		<input hidden type="text" id="year" th:field="*{year}">
-
-		<button type="submit" class="btn btn-primary mt-2 mb-2 mr-2">Bookmark!</button>
-	</form>
 
 	<a href="/dashboard"><button type="button" class="btn btn-secondary">Cancel</button></a>
 

@@ -13,7 +13,7 @@
 <nav class="navbar navbar-dark bg-dark">
 	<a class="navbar-brand" href="/dashboard">Moovy Magic</a>
 </nav>
-<div class="container">
+<div class="container" style="margin-top:200px">
 	<h4 class="d-flex justify-content-center mt-4">Search for your favorite movies...</h4>
 	<form id="form" class="form-inline justify-content-center mb-4">
 		<input id="search" autocomplete="off" class="form-control mr-sm-2 mr-md-0" type="search" aria-label="Search" style="width:420px;height:38px;">
@@ -25,7 +25,7 @@
 	</div>
 
 <!--	Start of bookmarks-->
-	<h3 class="text-center">Bookmarks</h3>
+	<h5 class="text-center" style="margin-top:150px">Bookmarks</h5>
 	<div id="bookmark" class="container d-flex flex-wrap justify-content-center">
 		<div th:each="bookmark:${bookmarks}">
 			<div class="card text-center" style="width: 18rem;">
@@ -75,7 +75,7 @@
 									<div class="card mb-3 col-md-6" style="max-width: 540px; background: #ECEBEB">
 										<div class="text-center">
 											<a onclick="sessionStorage.setItem('movieId', '${imdbID}');window.location='show.html';return false;" href="#">
-												<img class="img-thumbnail" src="${poster}" style="width: 220px; height:320px;">
+												<img class="img-thumbnail" src="${poster}" style="width: 220px; height:320px;" alt="Movie poster">
 											</a>
 										</div>
 										<div>
