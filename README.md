@@ -1,5 +1,6 @@
-**MoovyMagic
-A simple movie bookmarking application that gets movie data from OMDB API, built with Java and Spring Boot 
+**MoovyMagic**
+
+**A simple movie bookmarking application that gets movie data from OMDB API, built with Java and Spring Boot**
 
 *	Java + Spring Boot
 *	Hibernate ORM + JPA
@@ -14,7 +15,7 @@ A simple movie bookmarking application that gets movie data from OMDB API, built
 * Movie details: Upon clicking on a specific movie, visitors are able to see that movie's details.
 *	Bookmark: Visitors have the ability to create a bookmark, view all the bookmarks in the dashboard, and delete a bookmark. Bookmarks persist across multiple browsers and sessions.
 
-**Made with Java 11, Spring Boot v 2.3.4, IntelliJ IDE, and Maven.** 
+**Made with Java 11, Spring Boot v 2.3.4, IntelliJ IDE, and Maven.**
 **Instructions to run project:** 
 1. Github 
    a. Clone repository 
