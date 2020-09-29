@@ -9,7 +9,7 @@
 	<div class="container">
 		<h4>Are you sure you want to delete this bookmark?</h4>
 		<form th:action="${'/bookmarks/' + bookmark.id + '/delete'}" th:method="POST">
-			<button type="submit" class="btn btn-danger mb-2 album-subheading">Delete bookmark</button>
+			<button type="submit" class="btn btn-danger mb-2">Delete bookmark</button>
 		</form>
 
 		<a href="/dashboard"><button type="button" class="btn btn-secondary">Cancel</button></a>
