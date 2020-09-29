@@ -33,5 +33,3 @@
       a. Go to: **localhost/dashboard**
       b. Start by searching a movie, then select a movie, add a bookmark, and delete a bookmark.
 8. (Optional: run BookmarksIntegrationTests).
-# cloned-movies
-# cloned-movies
