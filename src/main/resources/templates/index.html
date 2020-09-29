@@ -26,13 +26,16 @@
 
 <!--	Start of bookmarks-->
 	<h5 class="text-center" style="margin-top:150px">Bookmarks</h5>
+
+	<p th:if="${noBookmarksFound}" class="text-center">No Bookmarks yet</p>
+
 	<div id="bookmark" class="container d-flex flex-wrap justify-content-center">
 		<div th:each="bookmark:${bookmarks}">
 			<div class="card text-center" style="width: 18rem;">
 				<img th:src="${bookmark.posterLink}" class="card-img-top mx-auto" style="width: 6rem; height: 10rem;">
 				<div class="card-body">
 					<p hidden th:text="${bookmark.id}" class="card-text">ID</p>
-					<h3 th:text="${bookmark.title}" class="card-title">Title</h3>
+					<h6 th:text="${bookmark.title}" class="card-title">Title</h6>
 					<p hidden th:text="${bookmark.imdbID}" class="card-text">Imdb ID</p>
 					<p th:text="${bookmark.year}" class="card-text">Year</p>
 					<form th:action="${'/bookmarks/' + bookmark.id + '/delete'}" th:method="GET">
