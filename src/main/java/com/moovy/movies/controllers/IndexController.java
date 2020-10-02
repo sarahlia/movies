@@ -10,7 +10,7 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/show.html")
+    @GetMapping("/show")
     public String showOneMovie() {
         return "show";
     }

@@ -21,7 +21,7 @@
 	</div>
 
 	<!--	Form model binding with Java class fields/database columns -->
-	<form class="form-group" th:action="@{/bookmarks/save}" method="POST" th:object="${bookmark}">
+	<form class="form-group" th:action="@{/bookmarks/save}" th:method="POST" th:object="${bookmark}">
 		<input hidden type="text" id="imdbID"  th:field="*{imdbID}">
 		<input hidden type="text" id="posterLink" th:field="*{posterLink}">
 		<input hidden type="text" id="title" th:field="*{title}">
